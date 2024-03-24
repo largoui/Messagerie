@@ -102,7 +102,7 @@ const saveUsername = () => {
     return;
   }
 
-  const newUserId = savedUserId ?? crypto.randomUUID();
+  const newUserId = savedUserId ? savedUserId : crypto.randomUUID();
   const endpoint = microServiceURL + '/user/' + newUserId + '/' + newUsername;
 
   fetch(endpoint).then(response => {
