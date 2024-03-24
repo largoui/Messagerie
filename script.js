@@ -1,6 +1,5 @@
-import URL from './config.js'
 let msgs = [];
-const microServiceURL = URL
+const microServiceURL = "https://messagerie-back.onrender.com";
 
 let savedUsername;
 let savedUserId;
