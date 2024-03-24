@@ -1,5 +1,5 @@
 let msgs = [];
-const microServiceURL = "https://messagerie-back.onrender.com";
+const microServiceURL = "https://92483300-5e27-4233-a35f-5078784882c8-00-2otbkjxnxr9oz.picard.replit.dev";
 
 let savedUsername;
 let savedUserId;
@@ -106,7 +106,7 @@ const saveUsername = () => {
   const endpoint = microServiceURL + '/user/' + newUserId + '/' + newUsername;
 
   fetch(endpoint).then(response => {
-    handleUsernameResponse(response, savedUserId, newUsername);
+    handleUsernameResponse(response, newUserId, newUsername);
   }).catch(error => {
     handleUsernameError("Failed to update username");
   });
