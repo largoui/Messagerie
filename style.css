@@ -253,6 +253,8 @@ body {
   align-items: start;
   justify-content: space-between;
   gap: 10px;
+  margin: 0;
+  padding: 0;
 }
 
 .username-input {

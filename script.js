@@ -77,15 +77,15 @@ const initMsgs = () => {
     })
     .then((data) => {
       msgs = data.msgs;
-      console.log(msgs);
       const msgList = document.getElementById("msgsList");
       msgList.innerHTML = "";
       for (let i = 0; i < msgs.length; i++) {
         const li = document.createElement("li");
-        li.innerHTML = `<p>${msgs[i].user}: ${msgs[i].msg ?? ""}</p>`;
+        li.innerHTML = `<p><span class="msg-username" style="color: ${msgs[i].user.color}">${msgs[i].user.name}:</span> ${msgs[i].msg ?? ""}</p>`;
         if (msgs[i].img) {
           li.innerHTML += `<img src="${microServiceURL + '/' + msgs[i].img}" width="100px" height="100px" />`;
         }
+        li.style.borderColor = msgs[i].user.color;
         msgList.appendChild(li);
       }
     });
@@ -102,7 +102,15 @@ const saveUsername = () => {
     return;
   }
 
-  const newUserId = savedUserId ? savedUserId : crypto.randomUUID();
+  const newUserId = savedUserId ?? crypto.randomUUID();
+
+  console.log(newUserId);
+
+  if (!newUserId || newUserId === "null") {
+    handleUsernameError("Failed to save username");
+    return;
+  }
+
   const endpoint = microServiceURL + '/user/' + newUserId + '/' + newUsername;
 
   fetch(endpoint).then(response => {
