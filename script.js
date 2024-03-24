@@ -1,5 +1,5 @@
 let msgs = [];
-const microServiceURL = "https://messagerie-back.onrender.com";
+const microServiceURL = "https://92483300-5e27-4233-a35f-5078784882c8-00-2otbkjxnxr9oz.picard.replit.dev";
 
 let savedUsername;
 let savedUserId;
