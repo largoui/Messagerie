@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>TP ArchiApp</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+    rel="stylesheet">
+
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body onload="initMsgs()">
+  <nav class="bandeau">
+    <h2 class="bandeau-titre">Messages</h2>
+  </nav>
+  <main class="content">
+    <section class="msg-section">
+      <ul class="msg-list">
+        <!-- <li>I love you !</li>
+        <li>You are the best thing that ever happened to me !</li>
+        <li>Give me your babies !</li>
+        <li>❤️❤️❤️❤️❤️❤️❤️❤️</li>
+        <li>Love :x</li> -->
+      </ul>
+    </section>
+    <section class="input-section">
+      <textarea class="input-msg" placeholder="Type your message..."></textarea>
+      <input type="file" id="image" accept="image/*">
+      <button class="submit-button" onclick="submit()">Submit</button>
+    </section>
+  </main>
+</body>
+
+<script src="script.js"></script>
+
+</html>
