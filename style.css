@@ -5,21 +5,67 @@ body {
   padding: 0;
   display: flex;
   flex-direction: column;
+  font-family: "Roboto", sans-serif;
+  overflow-y: auto;
 }
 
 .bandeau {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 30px;
+  padding: 10px;
   background-color: white;
   border-bottom: #211951 2px solid;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  padding: 10px;
+  
 }
 
 .bandeau-titre {
   color: #211951;
   margin: 0;
-  font-family: "Roboto", sans-serif;
   font-weight: 500;
   font-style: normal;
+}
+
+.nav-buttons {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.nav-button {
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  color: #211951;
+  height: 30px;
+  width: 30px;
+  border: #211951 1px solid;
+  border-radius: 2px;
+}
+
+.icon {
+  width: 12px;
+  height: 12px;
+  margin: 0;
+  padding: 0;
+  fill: #211951;
+}
+
+.nav-button:hover {
+  background-color: #211951;
+}
+
+.nav-button:hover .icon {
+  fill: white;
+}
+
+.nav-button:active {
+  transform: scale(1.01);
 }
 
 .content {
@@ -28,10 +74,18 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  gap: 20px;
 }
 
 .msg-section {
-  padding: 10px 0px;
+  padding: 0;
+}
+
+.welcome-msg {
+  color: #211951;
+  margin-bottom: 10px;
+  margin-top: 0;
+  font-style: normal;
 }
 
 .msg-list {
@@ -47,7 +101,6 @@ body {
   padding: 10px;
   border-radius: 5px;
   background-color: white;
-  font-family: "Roboto", sans-serif;
   font-weight: 400;
   font-style: normal;
 }
@@ -59,6 +112,16 @@ body {
 .msg-list li:hover {
   border-color: #211951;
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+}
+
+.msg-list li p {
+  margin: 0;
+  padding: 0;
+}
+
+.msg-list li img {
+  margin: 5px;
+  padding: 0;
 }
 
 .input-section {
@@ -76,7 +139,6 @@ body {
   height: 36px;
   font-weight: bold;
   cursor: pointer;
-  font-family: "Roboto", sans-serif;
   font-weight: 700;
   font-style: normal;
 }
@@ -86,7 +148,7 @@ body {
 }
 
 .submit-button:active {
-  transform: scale(1.1);
+  transform: scale(1.01);
 }
 
 .input-msg {
@@ -98,7 +160,155 @@ body {
   line-height: 36px;
   font-size: 14px;
   flex: 1px;
-  font-family: "Roboto", sans-serif;
   font-weight: 400;
   font-style: normal;
+}
+
+.upload-button {
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  height: 34px;
+  width: 34px;
+  border: #211951 1px solid;
+  border-radius: 5px;
+}
+
+.upload-button .icon {
+  height: 16px;
+  width: 16px;
+  fill: #211951;
+}
+
+.upload-button:hover {
+  background-color: #211951;
+}
+
+.upload-button:hover .icon {
+  fill: white;
+}
+
+.upload-button:active {
+  transform: scale(1.01);
+}
+
+.upload-button.active {
+  background-color: #211951;
+  transform: scale(1.01);
+}
+
+.upload-button.active .icon {
+  fill: white;
+}
+
+.close-button {
+  background-color: red;
+}
+
+.close-button:hover {
+  background-color: orangered;
+}
+
+.popup {
+  display: none;
+  position: absolute;
+  padding: 0;
+  margin: 0;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #11111188;
+  z-index: 1000;
+}
+
+.popupForm {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: space-between;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 200px;
+  gap: 20px;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+.popup-title {
+  color: #211951;
+  margin: 0;
+}
+
+.popup-content {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.username-input {
+  height: 36px;
+  border: #21195150 1px solid;
+  resize: none;
+  border-radius: 5px;
+  padding: 0px 10px;
+  line-height: 36px;
+  font-size: 14px;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.form-buttons {
+  display: flex;
+  width: 100%;
+  gap: 10px;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.hide {
+  display: none;
+}
+
+.show {
+    display: block;
+}
+
+.noScroll {
+  overflow: hidden;
+}
+
+.loader-wrapper {
+  display: none;
+  flex-direction: row;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.loader {
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid #211951;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.loader-wrapper.show {
+  display: flex;
 }

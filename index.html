@@ -17,23 +17,54 @@
 <body onload="initMsgs()">
   <nav class="bandeau">
     <h2 class="bandeau-titre">Messages</h2>
+    <div class="nav-buttons">
+      <button class="nav-button" onclick="initMsgs()">
+        <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+          <path
+            d="M371.2 122.9C340.3 96.2 300 80 256 80C158.8 80 80 158.8 80 256s78.8 176 176 176c39.7 0 76.2-13.1 105.6-35.2c10.6-8 25.6-5.8 33.6 4.8s5.8 25.6-4.8 33.6C353 463.3 306.4 480 256 480C132.3 480 32 379.7 32 256S132.3 32 256 32c57.3 0 109.6 21.5 149.2 56.9l30.5-30.5c6.6-6.6 15.6-10.3 25-10.3C480.2 48 496 63.8 496 83.3V200c0 13.3-10.7 24-24 24H355.3c-19.5 0-35.3-15.8-35.3-35.3c0-9.4 3.7-18.3 10.3-25l40.8-40.8zm76.8-9L385.9 176H448V113.9z" />
+        </svg>
+      </button>
+      <button class="nav-button" onclick="openForm()">
+        <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+          <path
+            d="M304 128a80 80 0 1 0 -160 0 80 80 0 1 0 160 0zM96 128a128 128 0 1 1 256 0A128 128 0 1 1 96 128zM49.3 464H398.7c-8.9-63.3-63.3-112-129-112H178.3c-65.7 0-120.1 48.7-129 112zM0 482.3C0 383.8 79.8 304 178.3 304h91.4C368.2 304 448 383.8 448 482.3c0 16.4-13.3 29.7-29.7 29.7H29.7C13.3 512 0 498.7 0 482.3z" />
+        </svg>
+      </button>
+    </div>
   </nav>
   <main class="content">
     <section class="msg-section">
-      <ul class="msg-list">
-        <!-- <li>I love you !</li>
-        <li>You are the best thing that ever happened to me !</li>
-        <li>Give me your babies !</li>
-        <li>❤️❤️❤️❤️❤️❤️❤️❤️</li>
-        <li>Love :x</li> -->
+      <h3 class="welcome-msg" id="welcome-msg"></h3>
+      <ul class="msg-list" id="msgsList">
       </ul>
     </section>
     <section class="input-section">
-      <textarea class="input-msg" placeholder="Type your message..."></textarea>
-      <input type="file" id="image" accept="image/*">
+      <textarea class="input-msg" id="msgInput" placeholder="Type your message..."></textarea>
+      <input type="file" id="image" accept="image/png, image/jpeg" style="display: none;" />
+      <label id="upload-button" class="upload-button" for="image" title="No Images">
+        <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+          <path
+            d="M448 80c8.8 0 16 7.2 16 16V415.8l-5-6.5-136-176c-4.5-5.9-11.6-9.3-19-9.3s-14.4 3.4-19 9.3L202 340.7l-30.5-42.7C167 291.7 159.8 288 152 288s-15 3.7-19.5 10.1l-80 112L48 416.3l0-.3V96c0-8.8 7.2-16 16-16H448zM64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zm80 192a48 48 0 1 0 0-96 48 48 0 1 0 0 96z" />
+        </svg>
+      </label>
       <button class="submit-button" onclick="submit()">Submit</button>
     </section>
   </main>
+  <div id="popup" class="popup">
+    <div class="popupForm" id="usernameForm">
+      <h3 class="popup-title">Change Username</h3>
+      <div class="popup-content" id="popup-content">
+        <input type="text" class="username-input" id="usernameInput" placeholder="New Username">
+        <div class="form-buttons">
+          <button class="submit-button" onclick="saveUsername()">Save</button>
+          <button class="submit-button close-button" onclick="closeForm()">Close</button>
+        </div>
+      </div>
+      <div id="popup-loader" class="loader-wrapper">
+        <div class="loader"></div>
+      </div>
+    </div>
+  </div>
 </body>
 
 <script src="script.js"></script>
