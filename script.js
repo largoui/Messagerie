@@ -1,5 +1,5 @@
 let msgs = [];
-const microServiceURL = Proces.env.MICRO_SERVICE_URL;
+const microServiceURL = Process.env.MICRO_SERVICE_URL;
 
 const submit = () => {
   const msgInput = document.getElementById("msgInput");
