@@ -1,11 +1,12 @@
 let msgs = [];
-const microServiceURL = "https://92483300-5e27-4233-a35f-5078784882c8-00-2otbkjxnxr9oz.picard.replit.dev"
+const microServiceURL = Proces.env.MICRO_SERVICE_URL;
 
 const submit = () => {
-  const newMsg = document.querySelector('.input-msg').value;
+  const msgInput = document.getElementById("msgInput");
+  const newMsg = msgInput.value;
   fetch(microServiceURL + '/msg/post/' + newMsg)
     .then(() => {
-      document.querySelector('.input-msg').value = "";
+      msgInput.value = "";
       initMsgs()
     })
 }
@@ -17,9 +18,9 @@ const initMsgs = () => {
     })
     .then((data) => {
       msgs = data.msgs;
-      const msgList = document.querySelector(".msg-list");
+      const msgList = document.getElementById("msgsList");
       msgList.innerHTML = "";
-      for (var i = 0; i < msgs.length; i++) {
+      for (let i = 0; i < msgs.length; i++) {
         const li = document.createElement("li");
         li.innerHTML = msgs[i];
         msgList.appendChild(li);
@@ -27,23 +28,16 @@ const initMsgs = () => {
     });
 }
 
-// const fact = (n) => {
-//   let result = 1;
-//   for (let i = 1; i <= n; ++i) {
-//     result *= i;
-//   }
-//   return result
-// }
+const openForm = () => {
+  document.getElementById('popupForm').classList.add('show');
+}
 
-// console.log(fact(6))
+const closeForm = () => {
+  document.getElementById('popupForm').classList.remove('show');
+}
 
-// const applique = (f, tab) => {
-//   const result = [];
-//   for (let i = 0; i < tab.length; ++i) {
-//     result.push(f(tab[i]));
-//   }
-//   return result
-// }
-
-// console.log(applique(fact, [1, 2, 3, 4, 5, 6]))
-// console.log(applique(function(n) { return (n + 1); }, [1, 2, 3, 4, 5, 6]));
+const saveUsername = () => {
+  const newUsername = document.getElementById('usernameInput').value;
+  console.log('New username:', newUsername);
+  closeForm();
+}
